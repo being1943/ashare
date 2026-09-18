@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>A股情绪监控台 · 2026-09-18</title>
+<style>
+:root{--red:#d93025;--green:#189a5a;--flat:#8a94a6;--ink:#1f2733;
+--ink2:#3c4655;--muted:#8a94a6;--line:#e3e8ef;--bg:#f4f6f9;--card:#fff;}
+*{box-sizing:border-box;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB",
+"Microsoft YaHei",sans-serif;font-size:15px;line-height:1.6}
+.wrap{max-width:720px;margin:0 auto;padding:12px 12px 40px}
+header{background:linear-gradient(135deg,#1f2733,#33415a);color:#fff;
+border-radius:14px;padding:16px 18px;margin-bottom:12px}
+header h1{margin:0 0 6px;font-size:19px;letter-spacing:.3px}
+header .sub{font-size:12.5px;color:#c3ccdb;display:flex;flex-wrap:wrap;gap:4px 12px}
+header .sub b{color:#fff;font-weight:600}
+.badge{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11.5px;
+background:rgba(255,255,255,.15);color:#fff}
+.card{background:var(--card);border-radius:14px;padding:14px 16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,30,50,.06)}
+.card h2{margin:0 0 10px;font-size:15px;font-weight:600;display:flex;
+align-items:center;justify-content:space-between;gap:8px}
+.card h2 .tag{font-size:11.5px;font-weight:400;color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center}
+.kpi{background:#f7f9fc;border-radius:10px;padding:9px 4px}
+.kpi .v{font-size:19px;font-weight:700;line-height:1.25;
+font-variant-numeric:tabular-nums}
+.kpi .k{font-size:11.5px;color:var(--muted);margin-top:2px}
+.mood{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center}
+.mood .txt{font-size:13px;color:var(--ink2)}
+.mood .txt b{font-size:16px}
+.cta{display:block;text-align:center;background:#1f2733;color:#fff;text-decoration:none;
+border-radius:10px;padding:11px;font-size:14.5px;font-weight:600;margin-top:12px}
+.lede{font-size:13px;color:var(--ink2);margin:6px 0 0}
+.tl{width:100%;border-collapse:collapse;font-size:13.5px}
+.tl th{font-size:11.5px;color:var(--muted);font-weight:500;text-align:right;
+padding:6px 4px;border-bottom:1px solid var(--line)}
+.tl th:first-child{text-align:left}
+.tl td{padding:8px 4px;text-align:right;border-bottom:1px solid #f1f4f8;
+font-variant-numeric:tabular-nums}
+.tl td:first-child{text-align:left}
+.tl tr:last-child td{border-bottom:none}
+.tl a{color:var(--ink);text-decoration:none;display:block;font-weight:600}
+.tl .tm{font-variant-numeric:tabular-nums;font-weight:600}
+.up{color:var(--red)}.down{color:var(--green)}.flat{color:var(--flat)}
+.note{font-size:12px;color:var(--muted);line-height:1.7}
+.note b{color:var(--ink2)}
+footer{margin-top:6px;padding:0 4px}
+@media(max-width:420px){
+  .wrap{padding:8px 8px 32px}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .card{padding:12px 12px}
+  header{padding:14px 14px}
+  header h1{font-size:17px}
+  body{font-size:14px}
+  .tl th:nth-child(4),.tl td:nth-child(4){display:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>A股主线与情绪监控台</h1>
+  <div class="sub">
+    <span>交易日 <b>2026-09-18</b></span>
+    <span>最新快照 <b>11:00</b></span>
+    <span class="badge">每 30 分钟更新</span>
+  </div>
+</header>
+
+<div class="card">
+  <h2>情绪温度 <span class="tag">六项加权 · 0–100</span></h2>
+  <div class="mood"><svg viewBox="0 0 380 215" width="100%" style="max-width:380px">
+  <path d="M60.0 175.0 A130 130 0 0 1 84.8 98.6" fill="none" stroke="#c9d8ea" stroke-width="24" stroke-linecap="butt"/><path d="M84.8 98.6 A130 130 0 0 1 149.8 51.4" fill="none" stroke="#b7d5b0" stroke-width="24" stroke-linecap="butt"/><path d="M149.8 51.4 A130 130 0 0 1 230.2 51.4" fill="none" stroke="#f0d9a0" stroke-width="24" stroke-linecap="butt"/><path d="M230.2 51.4 A130 130 0 0 1 295.2 98.6" fill="none" stroke="#eab27e" stroke-width="24" stroke-linecap="butt"/><path d="M295.2 98.6 A130 130 0 0 1 320.0 175.0" fill="none" stroke="#dd9a90" stroke-width="24" stroke-linecap="butt"/>
+  <line x1="190" y1="175" x2="104.6" y2="123.0" stroke="#2b3440" stroke-width="4" stroke-linecap="round"/><circle cx="190" cy="175" r="8" fill="#2b3440"/>
+  <text x="190" y="209" text-anchor="middle" font-size="34" font-weight="700" fill="#1f2733">67.4</text>
+  <text x="40" y="199" text-anchor="middle" font-size="11" fill="#8a94a6">0 冰点</text>
+  <text x="190" y="22" text-anchor="middle" font-size="11" fill="#8a94a6">50 中性</text>
+  <text x="340" y="199" text-anchor="middle" font-size="11" fill="#8a94a6">100 过热</text>
+</svg></div>
+  <p class="lede" style="text-align:center">
+    <b>67.4</b> · 偏热 &nbsp;|&nbsp; 强势股（涨超5%）281 家
+  </p>
+</div>
+
+<div class="card">
+  <h2>关键指标 <span class="tag">11:00 采集</span></h2>
+  <div class="kpis"><div class="kpi"><div class="v "><span class="up">64</span></div><div class="k">涨停家数</div></div><div class="kpi"><div class="v "><span class="down">2</span></div><div class="k">跌停家数</div></div><div class="kpi"><div class="v ">4</div><div class="k">最高连板</div></div><div class="kpi"><div class="v ">81.1%</div><div class="k">上涨占比</div></div></div>
+  <p class="lede">领涨板块：黄酒概念 +7.27%、半导体 +3.85%、昨日首板 +2.75%</p>
+  <p class="lede">市场广度：上涨 4504 / 平盘 185 / 下跌 863
+     （覆盖 6168 只代码）</p>
+  <a class="cta" href="latest.html">查看最新完整图表页面 →</a>
+</div>
+
+<div class="card">
+  <h2>市场广度</h2>
+  <svg viewBox="0 0 640 42" width="100%" style="max-width:640px"><rect x="0.0" y="4" width="519.2" height="26" fill="#d93025"/><text x="259.6" y="22" text-anchor="middle" font-size="12" fill="#fff" font-weight="600">4504</text><rect x="519.2" y="4" width="21.3" height="26" fill="#c9d0da"/><rect x="540.5" y="4" width="99.5" height="26" fill="#189a5a"/><text x="590.3" y="22" text-anchor="middle" font-size="12" fill="#fff" font-weight="600">863</text><text x="0" y="40" font-size="11" fill="#8a94a6">上涨 4504 · 平盘 185 · 下跌 863 · 交易中 5552 只（样本 6168）</text></svg>
+</div>
+
+<div class="card">
+  <h2>板块强弱 <span class="tag">涨红跌绿</span></h2>
+  <svg viewBox="0 0 468 358" width="100%"><line x1="258.0" y1="6" x2="258.0" y2="348" stroke="#d5dbe3" stroke-width="1"/><text x="100" y="23" text-anchor="end" font-size="12" fill="#3c4655">黄酒概念</text><rect x="258.0" y="13" width="144.0" height="15" rx="2" fill="#d93025"/><text x="408.0" y="25" text-anchor="start" font-size="11.5" fill="#d93025" font-weight="600">+7.27%</text><text x="100" y="49" text-anchor="end" font-size="12" fill="#3c4655">半导体</text><rect x="258.0" y="39" width="76.3" height="15" rx="2" fill="#d93025"/><text x="340.3" y="51" text-anchor="start" font-size="11.5" fill="#d93025" font-weight="600">+3.85%</text><text x="100" y="75" text-anchor="end" font-size="12" fill="#3c4655">昨日首板</text><rect x="258.0" y="65" width="54.5" height="15" rx="2" fill="#d93025"/><text x="318.5" y="77" text-anchor="start" font-size="11.5" fill="#d93025" font-weight="600">+2.75%</text><text x="100" y="101" text-anchor="end" font-size="12" fill="#3c4655">大硅片</text><rect x="258.0" y="91" width="49.5" height="15" rx="2" fill="#d93025"/><text x="313.5" y="103" text-anchor="start" font-size="11.5" fill="#d93025" font-weight="600">+2.50%</text><text x="100" y="127" text-anchor="end" font-size="12" fill="#3c4655">电子</text><rect x="258.0" y="117" width="48.9" height="15" rx="2" fill="#d93025"/><text x="312.9" y="129" text-anchor="start" font-size="11.5" fill="#d93025" font-weight="600">+2.47%</text><text x="100" y="153" text-anchor="end" font-size="12" fill="#3c4655">美容护理</text><rect x="258.0" y="143" width="43.8" height="15" rx="2" fill="#d93025"/><text x="307.8" y="155" text-anchor="start" font-size="11.5" fill="#d93025" font-weight="600">+2.21%</text><text x="100" y="179" text-anchor="end" font-size="12" fill="#3c4655">靶材</text><rect x="258.0" y="169" width="42.8" height="15" rx="2" fill="#d93025"/><text x="306.8" y="181" text-anchor="start" font-size="11.5" fill="#d93025" font-weight="600">+2.16%</text><text x="100" y="205" text-anchor="end" font-size="12" fill="#3c4655">建筑材料</text><rect x="238.4" y="195" width="19.6" height="15" rx="2" fill="#189a5a"/><text x="232.4" y="207" text-anchor="end" font-size="11.5" fill="#189a5a" font-weight="600">-0.99%</text><text x="100" y="231" text-anchor="end" font-size="12" fill="#3c4655">煤炭</text><rect x="248.1" y="221" width="9.9" height="15" rx="2" fill="#189a5a"/><text x="242.1" y="233" text-anchor="end" font-size="11.5" fill="#189a5a" font-weight="600">-0.50%</text><text x="100" y="257" text-anchor="end" font-size="12" fill="#3c4655">贵金属</text><rect x="250.7" y="247" width="7.3" height="15" rx="2" fill="#189a5a"/><text x="244.7" y="259" text-anchor="end" font-size="11.5" fill="#189a5a" font-weight="600">-0.37%</text><text x="100" y="283" text-anchor="end" font-size="12" fill="#3c4655">白酒Ⅱ</text><rect x="251.7" y="273" width="6.3" height="15" rx="2" fill="#189a5a"/><text x="245.7" y="285" text-anchor="end" font-size="11.5" fill="#189a5a" font-weight="600">-0.32%</text><text x="100" y="309" text-anchor="end" font-size="12" fill="#3c4655">石油石化</text><rect x="253.8" y="299" width="4.2" height="15" rx="2" fill="#189a5a"/><text x="247.8" y="311" text-anchor="end" font-size="11.5" fill="#189a5a" font-weight="600">-0.21%</text><text x="100" y="335" text-anchor="end" font-size="12" fill="#3c4655">元件</text><rect x="256.6" y="325" width="1.4" height="15" rx="2" fill="#189a5a"/><text x="250.6" y="337" text-anchor="end" font-size="11.5" fill="#189a5a" font-weight="600">-0.07%</text></svg>
+</div>
+
+<div class="card">
+  <h2>涨停梯队 <span class="tag">连板分布</span></h2>
+  <svg viewBox="0 0 528 126" width="100%"><text x="48" y="21" text-anchor="end" font-size="12.5" fill="#3c4655">4 板</text><rect x="58" y="11" width="15.1" height="16" rx="2" fill="#d93025"/><text x="81.1" y="24" font-size="12" fill="#5b6675">2 家</text><text x="48" y="49" text-anchor="end" font-size="12.5" fill="#3c4655">3 板</text><rect x="58" y="39" width="7.5" height="16" rx="2" fill="#d93025"/><text x="73.5" y="52" font-size="12" fill="#5b6675">1 家</text><text x="48" y="77" text-anchor="end" font-size="12.5" fill="#3c4655">2 板</text><rect x="58" y="67" width="60.4" height="16" rx="2" fill="#e8897c"/><text x="126.4" y="80" font-size="12" fill="#5b6675">8 家</text><text x="48" y="105" text-anchor="end" font-size="12.5" fill="#3c4655">1 板</text><rect x="58" y="95" width="400.0" height="16" rx="2" fill="#f0c6bd"/><text x="466.0" y="108" font-size="12" fill="#5b6675">53 家</text></svg><p style="font-size:12.5px;color:var(--tx2);margin:12px 0 0"><b>连板龙头</b>：锡华科技（4板） · 华瓷股份（4板） · 内蒙新华（3板） · 金健米业（2板） · 华纺股份（2板） · 龙头股份（2板） · 科森科技（2板） · 南华生物（2板）</p><p style="font-size:12px;color:var(--tx3);margin:8px 0 0">连板数由逐日收盘价还原（连续涨幅达涨停阈值计 1 板），与交易所口径可能有极少数差异。</p>
+</div>
+
+<div class="card">
+  <h2>当日快照时间轴 <span class="tag">5 个时点 · 每 30 分钟</span></h2>
+  <table class="tl"><thead><tr><th>时刻</th><th>情绪</th><th>涨停</th><th>跌停</th><th>上涨占比</th><th>连板高度</th></tr></thead><tbody><tr><td><a href="snap_1100.html">11:00</a></td><td><b>67</b> <span class="flat">偏热</span></td><td class="up">64</td><td class="down">2</td><td class="up">81.1%</td><td>4 板</td></tr><tr><td><a href="snap_1030.html">10:30</a></td><td><b>62</b> <span class="flat">偏热</span></td><td class="up">51</td><td class="down">2</td><td class="up">79.7%</td><td>4 板</td></tr><tr><td><a href="snap_1000.html">10:00</a></td><td><b>60</b> <span class="flat">偏热</span></td><td class="up">40</td><td class="down">2</td><td class="up">84.8%</td><td>4 板</td></tr><tr><td><a href="snap_0930.html">09:30</a></td><td><b>48</b> <span class="flat">中性</span></td><td class="up">10</td><td class="down">2</td><td class="up">74.6%</td><td>4 板</td></tr><tr><td><a href="snap_0900.html">09:00</a></td><td><b>51</b> <span class="flat">中性</span></td><td class="up">57</td><td class="down">7</td><td class="down">46.4%</td><td>5 板</td></tr></tbody></table>
+  <p class="note" style="margin-top:10px">点任意时刻可打开该时点的完整图表页面。</p>
+</div>
+<footer>
+  <p class="note"><b>数据口径</b>：行情来自腾讯行情接口（qt.gtimg.cn），市场广度自算，
+  成交量为 0 视为停牌并从分母剔除。涨停判定按板块阈值近似（主板 9.8%、创业板/科创板 19.5%、
+  北交所 29.5%、ST 4.8%），与交易所口径存在小幅差异，仅用于情绪强弱比较。</p>
+  <p class="note"><b>页面更新说明</b>：本地快照每 30 分钟生成一次，在线页面在采集完成后约 5 分钟
+  自动同步发布；页面顶部标注的是最新一次快照的采集时刻。</p>
+  <p class="note"><b>免责声明</b>：本页为市场数据统计与复盘记录，<b>不构成任何投资建议</b>。
+  据此操作，风险自担。</p>
+</footer>
+</div>
+</body>
+</html>
